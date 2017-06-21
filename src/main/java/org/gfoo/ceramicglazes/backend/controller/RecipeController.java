@@ -14,12 +14,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.web.bind.annotation.CrossOrigin;
 /**
  * @author Gilles Faucherand
  *
  */
 @RestController
+@CrossOrigin
 @RequestMapping(RecipeController.RECIPE_SERVICE_BASE_URI)
 public class RecipeController {
 
@@ -36,7 +37,7 @@ public class RecipeController {
         "MA_KAOLINITE=15.0, ZnO=20.0, MA_BaCO3=12.0, MA_CRAIE=8.0, MA_ORTHOCLASE=60.0, MA_DOLOMIE=25.0"));
   }
 
-  @GetMapping()
+  @GetMapping
   public Collection<Recipe> recipes() {
     LOG.info("will return recipe collection");
     return data.values();
