@@ -10,11 +10,12 @@ import java.util.Map;
 import org.gfoo.ceramicglazes.backend.model.Recipe;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.CrossOrigin;
+
 /**
  * @author Gilles Faucherand
  *
@@ -38,13 +39,13 @@ public class RecipeController {
   }
 
   @GetMapping
-  public Collection<Recipe> recipes() {
+  public Collection<Recipe> getRecipes() {
     LOG.info("will return recipe collection");
     return data.values();
   }
 
   @GetMapping("{id}")
-  public Recipe recipes(@PathVariable final Long id) {
+  public Recipe getRecipe(@PathVariable final Long id) {
     LOG.info("will return recipe of id " + id);
     return data.get(id);
   }
